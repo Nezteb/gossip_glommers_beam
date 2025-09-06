@@ -2,23 +2,23 @@ defmodule GossipGlomers.ChallengeRunner do
   @moduledoc """
   Handles the core message-processing loop for a Maelstrom challenge.
 
-    This module is the engine that drives a challenge. It performs the following tasks:
+  This module is the engine that drives a challenge. It performs the following tasks:
 
-    1. Starts the Challenge
-      - Kicks off the specific challenge module's GenServer.
-    2. Manages IO
-      - Reads messages from standard input (`stdin`), line by line.
-    3. Parses Messages
-      - Decodes each line of input from JSON into an Elixir map.
-    4. Dispatches to Challenge
-      - Forwards the decoded message to the appropriate `handle_message/1` callback on the challenge module.
-    5.Provides Helpers
-      - Offers a set of helper functions (`send/3`, `reply/3`, etc.) to standardize and simplify
-      the process of sending messages and replies, which is especially useful for challenges involving
-      asynchronous communication with other nodes or services.
+  1. Starts the Challenge
+    - Kicks off the specific challenge module's GenServer.
+  2. Manages IO
+    - Reads messages from standard input (`stdin`), line by line.
+  3. Parses Messages
+    - Decodes each line of input from JSON into an Elixir map.
+  4. Dispatches to Challenge
+    - Forwards the decoded message to the appropriate `handle_message/1` callback on the challenge module.
+  5.Provides Helpers
+    - Offers a set of helper functions (`send/3`, `reply/3`, etc.) to standardize and simplify
+    the process of sending messages and replies, which is especially useful for challenges involving
+    asynchronous communication with other nodes or services.
 
-    The goal is to abstract away the boilerplate of Maelstrom communication, allowing each
-    challenge module to focus purely on its own logic and state management.
+  The goal is to abstract away the boilerplate of Maelstrom communication, allowing each
+  challenge module to focus purely on its own logic and state management.
 
   Docs:
   - https://github.com/jepsen-io/maelstrom/blob/main/resources/protocol-intro.md
